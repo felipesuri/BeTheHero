@@ -20,11 +20,11 @@ routes.post(
 			email: Joi.string()
 				.required()
 				.email(),
-			whatsapp: Joi.number()
+			whatsapp: Joi.string()
 				.required()
 				.min(11)
 				.max(16),
-			city: Joi.string().required,
+			city: Joi.string().required(),
 			uf: Joi.string()
 				.required()
 				.length(2)
