@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
+import { useAlert } from "react-alert";
 import { FiArrowLeft } from "react-icons/fi";
 
 import api from "../../services/api";
@@ -9,6 +10,7 @@ import logoImg from "../../assets/logo.svg";
 import "./styles.css";
 
 export default function NewIncident() {
+	const Alert = useAlert();
 	const [title, setTitle] = useState("");
 	const [description, setDescription] = useState("");
 	const [value, setValue] = useState("");
@@ -34,7 +36,11 @@ export default function NewIncident() {
 
 			history.push("/profile");
 		} catch {
-			alert("Erro ao cadastrar caso.");
+			Alert.show(
+				<div sytle={{ textTransform: "initial" }}>
+					Erro na criação do caso, tente novamente
+				</div>
+			);
 		}
 	}
 

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, useHistory } from "react-router-dom";
+import { useAlert } from "react-alert";
 import { FiPower, FiTrash2 } from "react-icons/fi";
 
 import api from "../../services/api";
@@ -9,6 +10,7 @@ import "./styles.css";
 import logoImg from "../../assets/logo.svg";
 
 export default function Profile() {
+	const Alert = useAlert();
 	const history = useHistory();
 	const [incidents, setIncidents] = useState([]);
 
@@ -37,7 +39,11 @@ export default function Profile() {
 
 			setIncidents(incidents.filter(incident => incident.id !== id));
 		} catch {
-			alert("Erro ao deletar caso, tente novamente.");
+			Alert.show(
+				<div style={{ textTransform: "initial" }}>
+					Erro ao deletar caso, tente novamente.
+				</div>
+			);
 		}
 	}
 

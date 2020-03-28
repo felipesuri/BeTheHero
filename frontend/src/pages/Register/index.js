@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
+import { useAlert } from "react-alert";
 import { FiArrowLeft } from "react-icons/fi";
 
 import api from "../../services/api";
@@ -8,6 +9,7 @@ import "./styles.css";
 import logoImg from "../../assets/logo.svg";
 
 export default function Register() {
+	const Alert = useAlert();
 	const [name, setName] = useState("");
 	const [email, setEmail] = useState("");
 	const [whatsapp, setWhatsapp] = useState("");
@@ -30,11 +32,19 @@ export default function Register() {
 		try {
 			const response = await api.post("ongs", data);
 
-			alert(`Seu ID de acesso: ${response.data.id}`);
+			Alert.show(
+				<div
+					style={{ textTransform: "initial" }}
+				>{`Cadastro concluído com Sucesso. Seu ID de acesso: ${response.data.id}`}</div>
+			);
 
 			history.push("/");
 		} catch {
-			alert("Erro no cadastro, tente novamente.");
+			Alert.show(
+				<div style={{ textTransform: "initial" }}>
+					Erro no cadastro, tente novamente.
+				</div>
+			);
 		}
 	}
 

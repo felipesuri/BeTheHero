@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
+import { useAlert } from "react-alert";
 import { FiLogIn } from "react-icons/fi";
 
 import api from "../../services/api";
@@ -9,6 +10,7 @@ import logoImg from "../../assets/logo.svg";
 import heroesImg from "../../assets/heroes.png";
 
 export default function Logon() {
+	const Alert = useAlert();
 	const [id, setId] = useState("");
 	const history = useHistory();
 
@@ -23,7 +25,11 @@ export default function Logon() {
 
 			history.push("/profile");
 		} catch (err) {
-			alert("Falha no Login, tente novamente.");
+			Alert.show(
+				<div style={{ textTransform: "initial" }}>
+					Falha no Login, tente novamente.
+				</div>
+			);
 		}
 	}
 
