@@ -23,6 +23,10 @@
   </a>
 </p>
 
+<p align="center">
+	<img src="images/pc-and-cell.png" width="100%" />
+</p>
+
 ### 📖 How to install?
  - Open your terminal and paste the command `git clone https://github.com/felipesuri/BeTheHero.git`.
  - Open the folder with `cd BeTheHero`.
@@ -31,7 +35,7 @@
 
 ### 📃 LICENSE 
 
-Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+EThis project is under MIT license. See the file [LICENSE](LICENSE) for more details.
 
 ---
 
